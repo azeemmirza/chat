@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~materialize-css/sass/materialize';
 
+// Variables
+$dark-3: #424242;
+
+// Helpers
 .h-100vh { height: 100vh; }
 .h-100 { height: 100%; }
 
+// Customization
+.input-field input:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+  color: $dark-3 !important;
+}
+
+.input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid  $dark-3 !important;
+  box-shadow: 0 0 0 0 $dark-3 !important;
+}
