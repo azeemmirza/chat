@@ -9,7 +9,9 @@ $dark-3-op: rgba(66, 66, 66, 0.1);
 .h-100vh { height: 100vh; }
 .h-100 { height: 100%; }
 .font-small { font-size: 12px !important; }
+.font-regular { font-size: 16px !important; }
 .scroll-y-overflow { overflow-y: scroll !important; }
+.margin-0 { margin: 0 !important;}
 
 // Customization
 .input-field input:focus + label, .materialize-textarea:focus:not([readonly]) + label {
@@ -23,6 +25,9 @@ $dark-3-op: rgba(66, 66, 66, 0.1);
 
 
 //Message list
+.message-list {
+
+}
 .message-item{
   display: flex;
   flex-direction: row;
