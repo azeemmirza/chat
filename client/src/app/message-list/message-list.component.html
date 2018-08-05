@@ -1,20 +1,16 @@
-<div class="container">
-  <div class="row">
-    <div class="col m5">
-
-      <div class="message-item" *ngFor="let msg of messages">
-        <div class="sender-pic">
-          <img [src]="msg.sender.picture" class="sender-pic">
-        </div>
-        <div class="sender">
-          <strong>{{msg.sender.name}}</strong>
-          <span>{{msg.message.text}}</span>
-        </div>
-        <div class="time">
-          <span>{{calTime(msg.message.time)}}</span>
-        </div>
-      </div>
-
+<div class="message-list h-100 scroll-y-overflow">
+  <div class="message-item" *ngFor="let msg of messages">
+    <div class="sender-pic">
+      <img [src]="msg.sender.picture" class="sender-pic">
+    </div>
+    <div class="sender">
+      <strong>{{msg.sender.name}}</strong>
+      <span>{{msg.message.text}}</span>
+    </div>
+    <div class="time">
+      <span>{{calTime(msg.message.time)}}</span>
     </div>
   </div>
 </div>
+
+
