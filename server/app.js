@@ -4,6 +4,8 @@ const express = require('express'),
     logger = require('morgan'),
     db = require ('./models/index');
 
+const cors = require('./cors');
+
 var indexRouter = require('./routes/index'),
     usersRouter = require('./routes/users');
 
@@ -14,6 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(cors);
+
 /*
 app.use(express.static(path.join(__dirname, 'public')));
 */
@@ -23,9 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Mongoose
 
 
-//Routes
-/*app.use('/', indexRouter);
-app.use('/users', usersRouter);*/
+
 
 app.use('/', (req, res) => {
     res.json({
