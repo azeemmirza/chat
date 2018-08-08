@@ -11,17 +11,17 @@
 
 const mongoose = require('mongoose'),
     uri = 'mongodb://localhost:27017/chat',
-    option = { useNewUrlParser : true };
+    option = {useNewUrlParser: true};
 
 mongoose.connect(uri, option)
-    .then((res)=>{
+    .then((res) => {
         console.log('Connection Established :');
-        console.log(res);
+        //console.log(res);
     })
-    .catch((err)=>{
+    .catch((err) => {
         console.error('Error: ' + err);
     });
 
-
+require('./user');
 
 module.exports = mongoose;
