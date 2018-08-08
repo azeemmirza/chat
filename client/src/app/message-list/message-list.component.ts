@@ -51,6 +51,11 @@ export class MessageListComponent implements OnInit {
       message : { text : 'This is message, lorep ipsum epsum epsum epsum', time : '2018-07-14 17:29:44' }
     }
   ];
+  message = [
+    { sender : { name: 'Time Berner', picture: 'assets/blank.png'},
+      message : { text : 'This is message, lorep ipsum epsum epsum epsum', time : '2018-07-14 17:29:44' }
+    }
+  ];
   constructor() { }
 
   ngOnInit() {}
