@@ -1,10 +1,11 @@
 const express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
-    logger = require('morgan');
+    logger = require('morgan'),
+    mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index'),
+    usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -16,6 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Socket
 
+//Mongoose
+
+mongoose.connect('mongodb://localhost:27017/chat', {useNewUrlParser: true});
 
 //Routes
 app.use('/', indexRouter);
