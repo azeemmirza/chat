@@ -1,8 +1,8 @@
 <div class="chat h-100">
   <div class="header center-align">
-    <h2>Tim Berners Lee</h2>
+    <i class="material-icons">perm_identity</i> <h2>Tim Berners Lee</h2>
   </div>
-  <div class="window scroll-y-overflow">
+  <div class="body">
     <div class="window-wrap ">
       <div class="sent">
         <div class="text">
@@ -84,15 +84,15 @@
       </div>
     </div>
   </div>
-  <div class="message-input">
-    <form>
+  <div class="footer">
+    <form [formGroup]="msg" (ngSubmit)="onSend(msg.value)">
       <div class="input-field col m10">
-        <textarea id="message" class="materialize-textarea"></textarea>
+        <textarea id="message" class="materialize-textarea" formControlName="message"></textarea>
         <label for="message">Type..</label>
 
       </div>
       <div class="input-field col m2 right-align">
-        <button class="btn-floating btn-large waves-effect darken-3" type="submit" name="action">
+        <button class="btn-floating btn-large waves-effect darken-3" type="submit" name="action" [disabled]="!msg.valid">
           <i class="material-icons center font-small">send</i>
         </button>
       </div>
