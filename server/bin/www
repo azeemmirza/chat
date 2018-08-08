@@ -97,5 +97,9 @@ function onListening() {
 var io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('Connection Init');
+  console.log('Connection Init' + socket.id);
+
+  socket.on('chat', (data) => {
+    console.log(data);
+  });
 });
