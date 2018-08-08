@@ -25,48 +25,43 @@ $dark-3-op: rgba(66, 66, 66, 0.1);
 
 
 //Message list
-.message-list {
 
-}
-.message-item{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid $dark-3-op;
-  .sender-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-    img { width: 100%; overflow: hidden}
-  }
-  .sender {
-    margin-right: 15px;
-    strong { display: block; }
-    span{ font-size: 12px; font-weight: 300; }
-  }
-  .time{
-    background: #f0f0f0;
-    border-radius: 15px;
-    padding: 1px 8px;
-    span {font-size: 12px;}
-  }
-}
+
 
 //Chat
 
 .chat {
   display: flex;
   flex-flow: column;
+  height: 100%;
   .header{
+    text-align: center;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
     h2 { font-size: 16px; }
+    i { margin: 2.37333333rem 15px 1.424rem 0; }
   }
-  .window {
+  .body {
     flex: 1;
     border-bottom: 1px solid $dark-3-op;
     border-top: 1px solid $dark-3-op;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      // -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      outline: 1px solid slategrey;
+    }
+
 
     .window-wrap {
       display: flex;
@@ -86,5 +81,34 @@ $dark-3-op: rgba(66, 66, 66, 0.1);
         .time{margin-left: auto; text-align: right}
       }
     }
+
+    .message-item{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid $dark-3-op;
+      .sender-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        img { width: 100%; overflow: hidden}
+      }
+      .sender {
+        margin-right: 15px;
+        strong { display: block; }
+        span{ font-size: 12px; font-weight: 300; }
+      }
+      .time{
+        background: #f0f0f0;
+        border-radius: 15px;
+        padding: 1px 8px;
+        margin-right: 15px;
+        span {font-size: 12px;}
+      }
+    }
+
   }
 }
