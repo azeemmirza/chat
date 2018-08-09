@@ -13,15 +13,20 @@ const jwt = require ('jsonwebtoken'),
     key = 'SECRET';
 
 module.exports.getToken = (data) => {
-    return jwt.sign(data, key, (err, token) => {
-        if (err) return err;
-        return token;
-    });
+
+    try {
+        return jwt.sign(data, key);
+    } catch (e) {
+        return e;
+    }
+
+
 };
 
 module.exports.verifyToken = (token) => {
-    return jwt.verify(token, key, (err, decoded) => {
-        if(err) return err;
-        return decoded;
-    });
+    try {
+        return jwt.verify(token, key);
+    } catch (e) {
+        return e;
+    }
 };
