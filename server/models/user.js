@@ -16,6 +16,5 @@ const mongoose = require ('mongoose'),
         password : String,
         status : Boolean
     });
-const User = mongoose.model('User', Schema);
 
-module.export = User;
+module.exports = mongoose.model('User', Schema);
