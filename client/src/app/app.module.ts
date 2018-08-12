@@ -1,25 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { MessageListComponent } from './message-list/message-list.component';
-import { ChatComponent } from './chat/chat.component';
-import {ChatService} from "./chat.service";
 import { ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+
+//Components
+import {AppComponent, LoginComponent, SignInComponent, SignUpComponent, MessageListComponent, ChatComponent}
+from "./app.includes";
+
+//Service
+import {ChatService} from './services/chat.service';
+import {AuthService} from './services/auth.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MessageListComponent,
-    ChatComponent
+    ChatComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
+    AuthService,
     ChatService
   ],
   bootstrap: [AppComponent]

@@ -4,7 +4,21 @@
 
 export const environment = {
   production: false,
-  ws_url : 'http://localhost:3000'
+
+  server : {
+    url: 'http://localhost:3000',
+    routes : {
+      auth : {
+        link: '/auth',
+        url : 'http://localhost:3000/auth'
+      },
+      chat : {
+        link: '/chat',
+        url : 'http://localhost:3000/chat'
+      }
+    }
+  }
+
 };
 
 /*
