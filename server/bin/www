@@ -7,7 +7,7 @@
 const app = require('../app'),
     debug = require('debug')('server:server'),
     http = require('http'),
-    socket = require('socket.io');
+    socket = require('./socket');
 
 /**
  * Get port from environment and store in Express.
@@ -94,12 +94,5 @@ function onListening() {
  * Socket
  */
 
-var io = socket(server);
+socket(server);
 
-io.on('connection', (socket) => {
-  console.log('Connection Init' + socket.id);
-
-  socket.on('chat', (data) => {
-    console.log(data);
-  });
-});

@@ -1,42 +1,41 @@
 const express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
-    logger = require('morgan'),
-    db = require ('./models/index');
+    logger = require('morgan');
+let app = express();
 
-const cors = require('./cors');
+const
+    cors = require('./bin/cors'),
+    models = require ('./models/index'),
+    port = require('./bin/port'),
+    passport = require ('./bin/passport')(app),
+    routes = require('./routes/index');
 
-var indexRouter = require('./routes/index'),
-    usersRouter = require('./routes/users');
 
-var app = express();
+
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use(cors);
 
 /*
 app.use(express.static(path.join(__dirname, 'public')));
 */
-
-//Socket
-
-//Mongoose
-
-
-
-
-app.use('/', (req, res) => {
-    res.json({
-        title : 'Chat API',
-        url : 'http://localhost:3000/',
-        host : 'localhost',
-        port : '3000'
-    });
+app.use ((req, res, next)=>{
+    console.log('Routed');
+    res.set('X-Auth', '123');
+    next();
 });
-app.db = db;
+
+// Routes
+app.use(routes);
+
+
+
+app.db = models;
+
+
 
 module.exports = app;
